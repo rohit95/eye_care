@@ -1,0 +1,36 @@
+
+plugins {
+	id  'java'
+	id  'application'
+	id  'com.github.johnrengelman.shadow' version '1.2.3'
+}
+
+sourceCompatibility = 1.8
+version = '1.0'
+mainClassName = 'io.vertx.core.Launcher'
+
+repositories {
+
+    mavenCentral()
+    jcenter()
+}
+
+
+dependencies {
+
+    compile "io.vertx:vertx-core:3.2.1"
+    compile "io.vertx:vertx-unit:3.2.1"
+    testCompile 'junit:junit:4.12'
+}
+
+shadowJar {
+	classifier = 'fat'
+	manifest {
+		attributes 'Main-Verticle' : 'io.vertx.eye_care.AppVerticle'
+	}
+	mergeServiceFiles {
+        include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
+    }
+}
+
+build.dependsOn shadowJar 
