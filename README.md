@@ -4,7 +4,7 @@ Doctors say eyes should be rested for 5 min. by looking at distant objects every
 
 # Install
 
-1) Run gradlew build
+1) Run:- gradlew build<br />
 2) run :- java -jar .\build\libs\eye_care-1.0-fat.jar<br />
         for windows<br />
 3) run :- java -jar ./build/libs/eye_care-1.0-fat.jar for UNIX
